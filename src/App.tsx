@@ -1,32 +1,38 @@
 import { useState } from "react";
-import Alert from "./components/Alert";
+import CartItems from "./components/CartItems/CartItems";
+import Navbar from "./components/CartItems/Navbar";
 import Button from "./components/Button";
 
 const App = () => {
-  const [visible, setVisibility] = useState(false);
+  const [cartItems, setItems] = useState([
+    "Cricket Balls",
+    "Sports Wear",
+    "Football",
+    "Shoes",
+    "T-Shirt",
+    "Trousers",
+  ]);
   const handleClick = () => {
-    setVisibility(!visible);
+    setItems([]);
   };
+
   return (
-    <>
-      <div className="container mt-5">
-        <h1
-          style={{
-            textAlign: "center",
-            color: "dodgerblue",
-            border: "1px solid dodgerblue",
-            padding: '10px',
-            borderRadius: '10px'
-          }}
-        >
-          <marquee direction="down" className='text-center'>
-            Alert Component
-          </marquee>
-        </h1>
-        {visible && <Alert onClick={handleClick} />}
-        <Button onClick={() => setVisibility(true)} title="Click to Reveal" />
-      </div>
-    </>
+    <div>
+      <Navbar cartItemsCount={cartItems.length} />
+      <CartItems
+        onRemove={(index1) =>
+          setItems(cartItems.filter((_, index) => index !== index1))
+        }
+        heading="Sports Category"
+        cartItems={cartItems}
+      />
+      <Button
+        cartItemCount={cartItems.length > 0 ? true : false}
+        title="Clear All"
+        color="primary"
+        onClick={handleClick}
+      />
+    </div>
   );
 };
 

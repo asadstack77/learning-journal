@@ -1,11 +1,19 @@
-import React from 'react'
-
+import { useState } from "react";
+import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 const Like = () => {
+  const [status, setStatus] = useState(false);
+  const toggle = () => {
+    setStatus(!status);
+  };
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      {status ? (
+        <FcLike onClick={toggle} size={30} />
+      ) : (
+        <FcLikePlaceholder onClick={toggle} size={30} />
+      )}
+    </>
+  );
+};
 
-export default Like
+export default Like;

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Like from "../Like";
 
 interface Props {
   cartItems: string[];
@@ -17,21 +18,20 @@ const CartItems = ({ cartItems, heading, onRemove }: Props) => {
         {cartItems.map((item, index) => (
           <li
             key={index}
-            className={
-              selectedItem === index
-                ? "list-group-item active d-flex justify-content-between"
-                : "list-group-item d-flex justify-content-between"
-            }
+            className='list-group-item d-flex justify-content-between'
             onClick={() => handleClick(index)}
           >
             {item}
-            <button
-              onClick={() => onRemove(index)}
-              className="btn btn-outline-danger"
-              style={{ border: "1px solid red" }}
-            >
-              Remove
-            </button>
+            <div>
+              <Like  />
+              <button
+                onClick={() => onRemove(index)}
+                className="btn btn-outline-danger mx-3"
+                style={{ border: "1px solid red" }}
+              >
+                Remove
+              </button>
+            </div>
           </li>
         ))}
       </ul>

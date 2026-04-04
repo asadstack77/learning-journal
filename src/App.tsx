@@ -35,7 +35,7 @@ const App = () => {
 
           {/* Filter */}
           <div className="col-12 col-md-6">
-              <h5 >FILTER BY CATEGORY</h5>
+            <h5>FILTER BY CATEGORY</h5>
             <div className="p-3 border rounded bg-light">
               <ExpenseFilter
                 onSelectCategory={(category) => setCategory(category)}

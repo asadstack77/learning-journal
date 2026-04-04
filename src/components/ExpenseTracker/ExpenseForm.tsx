@@ -1,5 +1,4 @@
-import React from "react";
-import ExpenseFilter from "./ExpenseFilter";
+
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -25,7 +24,7 @@ const ExpenseForm = ({  onSubmitData }: Props) => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid },
+    formState: { errors},
   } = useForm<ExpenseFormData>({ resolver: zodResolver(schema) });
   const onSubmit = (data: ExpenseFormData) => {
     onSubmitData(data);

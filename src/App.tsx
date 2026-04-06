@@ -7,7 +7,7 @@ import ExpenseForm from "./components/ExpenseTracker/ExpenseForm";
 
 // Firebase REST API URL for your project (replace with your project ID)
 const FIREBASE_URL =
-  "https://expense-tracker-dev-asad-default-rtdb.firebaseio.com/expenses";
+  "https://expense-tracker-dev-asad-default-rtdb.firebaseio.com/";
 
 const App = () => {
   const [expenses, setExpenses] = useState<any[]>([]);
